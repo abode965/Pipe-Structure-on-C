@@ -11,7 +11,6 @@
 This Project was done for OS 2nd project 01-Dec-17 by @Abdulrahman Alabrash
 alabrash.abd@gmail.com
 */
-char *convert(int number);
 
 typedef struct msgbuf {
          long    mtype;
@@ -110,29 +109,3 @@ main()
       msgsnd(msqid, &sbuf, buf_length, IPC_NOWAIT);//işlemi sonlandırmak için 0 gönderiliyor
 	  return 0;
   }
-
-char *convert(int number) //integer String e çevirmek
-{
-    int count=0;
-    int numbertmp=number;
-    while(numbertmp>0)
-    {
-        int digit= numbertmp%10;
-        numbertmp/=10;
-        count++;
-    }
-    char * value= (char * ) calloc (count,sizeof(unsigned char)  );
-    numbertmp=number;
-    count--;
-    while(numbertmp>0)
-    {
-        int digit= numbertmp%10;
-        numbertmp/=10;
-        char x=(char) 48+digit;
-        *(value+count)=x;
-        count--;
-    }
-
-    return value;
-}
-
