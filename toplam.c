@@ -4,14 +4,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-
 #define MSGSZ     128
-
-
 /*
- * Declare the message structure.
- */
+This Project was done for OS 2nd project 01-Dec-17 by @Abdulrahman Alabrash
+alabrash.abd@gmail.com
+*/
+
+
 int stringToInt(char *s);
 typedef struct msgbuf {
     long    mtype;
@@ -22,19 +21,13 @@ typedef struct msgbuf {
 int main()
 {
     int msqid;
-    key_t key;
+    key_t key = 1234;
     message_buf  rbuf;
 	int sayi;
 	int toplam=0;
 	int sayilar[100];
 	int i=0 ;
 
-    /*
-     * Get the message queue id for the
-     * "name" 1234, which was created by
-     * the server.
-     */
-    key = 1234;
 
     if ((msqid = msgget(key, 0666)) < 0) {
         perror("msgget");
